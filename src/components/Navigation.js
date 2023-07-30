@@ -13,11 +13,11 @@ const Navigation = () => {
            <Link to="/expenses">Expenses</Link>
         </li>
         <li>
-          <a href="#">Reports</a>
+          <Link to="/crud">Edit</Link>
         </li>
         <li>
-          <a href="#">Settings</a>
-        </li>
+          <Link to="/statistics">Statistics</Link>
+         </li>
       </ul>
     </nav>
   );

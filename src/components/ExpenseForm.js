@@ -6,14 +6,34 @@ const ExpenseForm = ({
   handleCharge,
   handleAmount,
   handleSubmit,
-  edit
+  edit,
+  selectedActivity,
+          handleSelect 
 }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-center">
         <div className="form-group">
           <label htmlFor="expense">actividad</label>
-          <input
+          <select
+             className="form-control"
+             id="charge"
+             name="charge"
+             value={charge}
+             onChange={handleCharge}
+           >
+              <option value="">Selecciona una actividad</option>
+              <option value="Rent">Rent</option>
+              <option value="Groceries">Groceries</option>
+              <option value="Outing">Outing</option>
+              <option value="Gasoline">Gasoline</option>
+              <option value="Car insurance">Car insurance</option>
+              <option value="Public transport">Public transport</option>
+              <option value="Taxes">Taxes</option>
+              <option value="Cellphone">Cellphone</option>
+              <option value="Netlix">Netflix</option>
+         </select>
+          {/* <input
             type="text"
             className="form-control"
             id="charge"
@@ -21,7 +41,7 @@ const ExpenseForm = ({
             placeholder="e.g. rent"
             value={charge}
             onChange={handleCharge}
-          />
+          /> */}
         </div>
         <div className="form-group">
           <label htmlFor="amount">monto</label>

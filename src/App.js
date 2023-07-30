@@ -8,7 +8,10 @@ import {
 
 import Navigation from "./components/Navigation";
 import { Main } from "./pages/main";
- 
+import { Crud } from "./pages/crud";
+import { Statistics } from "./pages/statistics";
+import { Expenses } from "./pages/expenses";
+
 
 export function App() {
   return (
@@ -18,7 +21,11 @@ export function App() {
         <Routes>
  
           <Route path="/" element={<Main />} />
-         
+          <Route path="/crud" element={<Crud />} />
+          <Route path="/statistics" element={<Statistics />} />
+          <Route path="/expenses" element={<Expenses />} />
+
+
         </Routes>
       </main>
     </Router>

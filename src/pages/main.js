@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
 import ExpenseForm from "../components/ExpenseForm";
-import ExpenseList from "../components/ExpenseList";
-import Alert from "../components/Alert";
+ import Alert from "../components/Alert";
 import axios from "axios";
-import ExpenseSummary from "../components/ExpenseSummary";
+ import ExpenseCards from "../components/ExpenseCards";
 
  
 
@@ -19,6 +18,7 @@ export function Main() {
   const [totalsPerDay, setTotalsPerDay] = useState([]);
   const [totalsPerMonth, setTotalsPerMonth] = useState([]);
 
+  
 
   // useEffect(() => {
   //   fetch('http://localhost:4000/api/expensesGrouped')
@@ -50,6 +50,9 @@ export function Main() {
   // }, [groupedExpenses]);
 
 
+
+
+
   useEffect(() => {
     fetch('http://localhost:4000/api/expensesGrouped')
       .then(response => response.json())
@@ -77,11 +80,24 @@ export function Main() {
 
 
   
-
+  const handleCharge = (event) => {
+    const selectedValue = event.target.value;
+    setCharge(selectedValue);
+    if (selectedValue === "Rent") {
+      setAmount(400);
+    } else if (selectedValue === "Car insurance") {
+      setAmount(100);
+    } else if (selectedValue === "Netflix") {
+      setAmount(100);
+    } else {
+      setAmount(0);
+    }
  
-  const handleCharge = (e) => {
-    setCharge(e.target.value);
   };
+ 
+  // const handleCharge = (e) => {
+  //   setCharge(e.target.value);
+  // };
 
   const handleAmount = (e) => {
     let amount = e.target.value;
@@ -148,37 +164,8 @@ export function Main() {
       });
   };
 
-  const handleDelete = (_id) => {
-    axios
-      .delete(`http://localhost:4000/api/expenses/${_id}`)
-      .then(() => {
-        setExpenses((prevExpenses) =>
-          prevExpenses.filter((expense) => expense._id !== id)
-        );
-        handleAlert({ type: "danger", text: "Gasto eliminado" });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  const clearItems = () => {
-    setExpenses([]);
-  };
-
-  
-
-  const handleEdit = (id) => {
-    const expense = expenses.find((item) => item._id === id);
-    if (expense) {
-      setCharge(expense.charge);
-      setAmount(expense.amount);
-      setEdit(true);
-      setId(id);
-    } else {
-      console.error("Expense not found");
-    }
-  };   
+ 
+ 
 
   return (
     <>
@@ -192,13 +179,10 @@ export function Main() {
           amount={amount}
           handleAmount={handleAmount}
           edit={edit}
+
+          
         />
-        <ExpenseList
-          expenses={expenses}
-          handleDelete={handleDelete}
-          handleEdit={handleEdit}
-          clearItems={clearItems}
-        />
+      
       </main>
       <h1>
         Total de gastos:
@@ -210,8 +194,19 @@ export function Main() {
         </span>
       </h1>
 
-      <ExpenseSummary expenses={expenses} totalsPerDay={totalsPerDay} />
-      <div className="card-container">
+      {/* <ExpenseSummary expenses={expenses} totalsPerDay={totalsPerDay} /> */}
+
+
+
+      <ExpenseCards
+        // groupedExpenses={groupedExpenses}
+         groupedExpenses={groupedExpenses.slice(0, 4)}
+         totalsPerDay={totalsPerDay}
+      />
+
+
+
+      {/* <div className="card-container">
       {groupedExpenses.map((group) => (
         <div key={group._id} className="card">
           <h3>{group._id}</h3>
@@ -225,7 +220,7 @@ export function Main() {
           <p>Total: ${totalsPerDay.find((total) => total.date === group._id)?.total}</p>
         </div>
       ))}
-    </div>
+    </div> */}
 
       {/* <h2>Gastos Agrupados por Fecha:</h2>
       <ul>

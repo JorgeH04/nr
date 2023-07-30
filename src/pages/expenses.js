@@ -7,7 +7,7 @@ import axios from "axios";
 
  
 
-export function Main() {
+export function Expenses() {
   const [expenses, setExpenses] = useState([]);
   const [charge, setCharge] = useState("");
   const [amount, setAmount] = useState("");
