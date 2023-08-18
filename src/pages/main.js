@@ -138,7 +138,8 @@ export function Main() {
     const expense = { charge, amount };
     axios
    //   .post("http://localhost:4000/api/expenses", expense)
-     fetch('https://budgetserver-5c928bf99a6c.herokuapp.com/api/expensesGrouped')
+   .post("https://budgetserver-5c928bf99a6c.herokuapp.com/api/expenses", expense)
+ //    .post('https://budgetserver-5c928bf99a6c.herokuapp.com/api/expensesGrouped')
       .then((response) => {
         setExpenses([...expenses, response.data]);
         handleAlert({ type: "success", text: "Gasto agregado" });

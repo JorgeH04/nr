@@ -21,7 +21,7 @@ export function Crud() {
       try {
       //  const response = await axios.get("http://localhost:4000/api/expenses");
       const response = await axios.get("https://budgetserver-5c928bf99a6c.herokuapp.com/api/expenses");
-       // const expensesData = response.data;  https://budgetserver-5c928bf99a6c.herokuapp.com
+
         const expensesData = response.data.map(expense => {
           return {
             ...expense,
