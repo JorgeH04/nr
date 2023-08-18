@@ -14,7 +14,8 @@ export function Statistics() {
   
     const fetchMostExpensiveDay = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/mostExpensiveDay');
+    //    const response = await axios.get('http://localhost:4000/api/mostExpensiveDay');
+      const response = await axios.get('https://budgetserver-5c928bf99a6c.herokuapp.com/api/mostExpensiveDay');
         setMostExpensiveDay(response.data);
       } catch (error) {
         console.error(error);
@@ -23,7 +24,8 @@ export function Statistics() {
   
     const fetchLeastExpensiveDay = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/leastExpensiveDay');
+      //  const response = await axios.get('http://localhost:4000/api/leastExpensiveDay');
+      const response = await axios.get('https://budgetserver-5c928bf99a6c.herokuapp.com/api/leastExpensiveDay');
         setLeastExpensiveDay(response.data);
       } catch (error) {
         console.error(error);
@@ -32,7 +34,8 @@ export function Statistics() {
   
     const fetchMostRepeatedExpense = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/mostRepeatedExpense');
+     //   const response = await axios.get('http://localhost:4000/api/mostRepeatedExpense');
+     const response = await axios.get('https://budgetserver-5c928bf99a6c.herokuapp.com/api/mostRepeatedExpense');
         setMostRepeatedExpense(response.data);
       } catch (error) {
         console.error(error);

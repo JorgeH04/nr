@@ -19,8 +19,9 @@ export function Crud() {
   useEffect(() => {
     const fetchExpenses = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/api/expenses");
-       // const expensesData = response.data;
+      //  const response = await axios.get("http://localhost:4000/api/expenses");
+      const response = await axios.get("https://budgetserver-5c928bf99a6c.herokuapp.com/api/expenses");
+       // const expensesData = response.data;  https://budgetserver-5c928bf99a6c.herokuapp.com
         const expensesData = response.data.map(expense => {
           return {
             ...expense,
@@ -84,7 +85,8 @@ export function Crud() {
   const addExpense = () => {
     const expense = { charge, amount };
     axios
-      .post("http://localhost:4000/api/expenses", expense)
+     // .post("http://localhost:4000/api/expenses", expense)
+     .post("https://budgetserver-5c928bf99a6c.herokuapp.com/api/expenses", expense)
       .then((response) => {
         setExpenses([...expenses, response.data]);
         handleAlert({ type: "success", text: "Gasto agregado" });
@@ -114,7 +116,10 @@ export function Crud() {
 
   const handleDelete = (_id) => {
     axios
-      .delete(`http://localhost:4000/api/expenses/${_id}`)
+     // .delete(`http://localhost:4000/api/expenses/${_id}`)
+     .delete(`https://budgetserver-5c928bf99a6c.herokuapp.com/api/expenses/${_id}`)
+
+      
       .then(() => {
         setExpenses((prevExpenses) =>
           prevExpenses.filter((expense) => expense._id !== id)

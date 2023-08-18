@@ -55,7 +55,7 @@ export function Main() {
 
   useEffect(() => {
     // fetch('http://localhost:4000/api/expensesGrouped')
-    fetch('http://localhost:4000/api/expensesGrouped')
+    fetch('https://budgetserver-5c928bf99a6c.herokuapp.com/api/expensesGrouped')
       .then(response => response.json())
       .then(data => {
         setGroupedExpenses(data);
@@ -150,8 +150,9 @@ export function Main() {
 
   const updateExpense = () => {
     const updatedExpense = { charge, amount };
-    axios
-      .put(`http://localhost:4000/api/expenses/${id}`, updatedExpense)
+    axios  
+   //   .put(`http://localhost:4000/api/expenses/${id}`, updatedExpense)
+     .put(`https://budgetserver-5c928bf99a6c.herokuapp.com/api/expenses/${id}`, updatedExpense)
       .then((response) => {
         setExpenses((prevExpenses) =>
           prevExpenses.map((expense) =>
