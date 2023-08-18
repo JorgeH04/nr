@@ -47,13 +47,14 @@ export function Main() {
   //   };
   
   //   calculateTotals();
-  // }, [groupedExpenses]);
+  // }, [groupedExpenses]);  https://budgetserver-5c928bf99a6c.herokuapp.com
 
 
 
 
 
   useEffect(() => {
+    // fetch('http://localhost:4000/api/expensesGrouped')
     fetch('http://localhost:4000/api/expensesGrouped')
       .then(response => response.json())
       .then(data => {
@@ -136,7 +137,8 @@ export function Main() {
   const addExpense = () => {
     const expense = { charge, amount };
     axios
-      .post("http://localhost:4000/api/expenses", expense)
+   //   .post("http://localhost:4000/api/expenses", expense)
+     fetch('https://budgetserver-5c928bf99a6c.herokuapp.com/api/expensesGrouped')
       .then((response) => {
         setExpenses([...expenses, response.data]);
         handleAlert({ type: "success", text: "Gasto agregado" });

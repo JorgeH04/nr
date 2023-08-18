@@ -10,7 +10,8 @@ export function Expenses() {
 
 
   useEffect(() => {
-    fetch('http://localhost:4000/api/expensesGrouped')
+  //  fetch('http://localhost:4000/api/expensesGrouped') https://budgetserver-5c928bf99a6c.herokuapp.com/
+  fetch('https://budgetserver-5c928bf99a6c.herokuapp.com/api/expensesGrouped')
       .then(response => response.json())
       .then(data => {
         setGroupedExpenses(data);
