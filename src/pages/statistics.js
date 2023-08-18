@@ -41,34 +41,47 @@ export function Statistics() {
   
     return (
       <div>
-        <h2>Expense Report</h2>
-  
-        <h3>Most Expensive Day</h3>
-        {mostExpensiveDay ? (
-          <p>
-            The most expensive day was {mostExpensiveDay._id} with a total expense of ${mostExpensiveDay.totalAmount}
-          </p>
-        ) : (
-          <p>Loading...</p>
-        )}
-  
-        <h3>Least Expensive Day</h3>
-        {leastExpensiveDay ? (
-          <p>
-            The least expensive day was {leastExpensiveDay._id} with a total expense of ${leastExpensiveDay.totalAmount}
-          </p>
-        ) : (
-          <p>Loading...</p>
-        )}
-  
-        <h3>Most Repeated Expense</h3>
-        {mostRepeatedExpense ? (
-          <p>
-            The most repeated expense was {mostRepeatedExpense._id} with a count of {mostRepeatedExpense.count}
-          </p>
-        ) : (
-          <p>Loading...</p>
-        )}
+
+
+<div className="statistics-container">
+        <div className="statistic-card">
+          <h3>Most Expensive Day</h3>
+          {mostExpensiveDay ? (
+            <p>
+              The most expensive day was {mostExpensiveDay._id} with a total expense of ${mostExpensiveDay.totalAmount}
+            </p>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+
+        <div className="statistic-card">
+          <h3>Least Expensive Day</h3>
+          {leastExpensiveDay ? (
+            <p>
+              The least expensive day was {leastExpensiveDay._id} with a total expense of ${leastExpensiveDay.totalAmount}
+            </p>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+
+        <div className="statistic-card">
+          <h3>Most Repeated Expense</h3>
+          {mostRepeatedExpense ? (
+            <p>
+              The most repeated expense was {mostRepeatedExpense._id} with a count of {mostRepeatedExpense.count}
+            </p>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+      </div>
+
+
+
+
+ 
       </div>
     );
   };

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
 import ExpenseForm from "../components/ExpenseForm";
- import Alert from "../components/Alert";
+import Alert from "../components/Alert";
 import axios from "axios";
- import ExpenseCards from "../components/ExpenseCards";
+import ExpenseCards from "../components/ExpenseCards";
 
  
 
@@ -88,7 +88,7 @@ export function Main() {
     } else if (selectedValue === "Car insurance") {
       setAmount(100);
     } else if (selectedValue === "Netflix") {
-      setAmount(100);
+      setAmount(7);
     } else {
       setAmount(0);
     }

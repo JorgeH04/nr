@@ -20,7 +20,13 @@ export function Crud() {
     const fetchExpenses = async () => {
       try {
         const response = await axios.get("http://localhost:4000/api/expenses");
-        const expensesData = response.data;
+       // const expensesData = response.data;
+        const expensesData = response.data.map(expense => {
+          return {
+            ...expense,
+            date: new Date(expense.date) // Convertir la cadena de fecha a un objeto de fecha
+          };
+        });
         setExpenses(expensesData);
       } catch (error) {
         console.log(error);

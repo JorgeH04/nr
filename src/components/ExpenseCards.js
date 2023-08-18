@@ -1,14 +1,13 @@
 import React from "react";
-import { MdEdit, MdDelete } from "react-icons/md";
+
 
 
 const ExpenseCards = ({
     groupedExpenses: { _id, charge, amount },
     totalsPerDay,
     groupedExpenses,
- // expense: { _id, charge, amount },
-  handleDelete,
-  handleEdit
+
+    
 }) => {
   return (
     <div className="card-container">

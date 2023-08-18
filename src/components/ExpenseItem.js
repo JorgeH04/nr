@@ -3,14 +3,14 @@ import { MdEdit, MdDelete } from "react-icons/md";
 
 
 const ExpenseItem = ({
-  expense: { _id, charge, amount },
+  expense: { _id, charge, amount, date },
   handleDelete,
   handleEdit
 }) => {
   return (
     <li className="item">
       <div className="info">
-        <span className="expense">{charge}</span>
+        <span className="expense"> <small>{date.toLocaleDateString()}</small> {charge}</span>
         <span className="amount">${amount}</span>
       </div>
       <div>
